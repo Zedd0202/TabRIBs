@@ -12,7 +12,7 @@ protocol MainDependency: Dependency {
     // created by this RIB.
 }
 
-final class MainComponent: Component<MainDependency> {
+final class MainComponent: Component<MainDependency>, FirstTabDependency, SecondTabDependency {
 
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
 }
@@ -20,7 +20,7 @@ final class MainComponent: Component<MainDependency> {
 // MARK: - Builder
 
 protocol MainBuildable: Buildable {
-    func build(withListener listener: MainListener) -> MainRouting
+    func build() -> LaunchRouting
 }
 
 final class MainBuilder: Builder<MainDependency>, MainBuildable {
@@ -29,11 +29,15 @@ final class MainBuilder: Builder<MainDependency>, MainBuildable {
         super.init(dependency: dependency)
     }
 
-    func build(withListener listener: MainListener) -> MainRouting {
+    func build() -> LaunchRouting {
         let component = MainComponent(dependency: dependency)
+        let firstBuilder = FirstTabBuilder(dependency: component)
+        let secondBuilder = SecondTabBuilder(dependency: component)
         let viewController = MainViewController()
         let interactor = MainInteractor(presenter: viewController)
-        interactor.listener = listener
-        return MainRouter(interactor: interactor, viewController: viewController)
+        return MainRouter(interactor: interactor,
+                          viewController: viewController,
+                          firstTabBuilder: firstBuilder,
+                          secondTabBuilder: secondBuilder)
     }
 }

@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
 
-            let launchRouter = RootBuilder(dependency: AppComponent()).build()
+            let launchRouter = MainBuilder(dependency: AppComponent()).build()
             self.launchRouter = launchRouter
             launchRouter.launchFromWindow(window)
         }

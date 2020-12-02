@@ -18,4 +18,9 @@ protocol FirstTabPresentableListener: class {
 final class FirstTabViewController: UIViewController, FirstTabPresentable, FirstTabViewControllable {
 
     weak var listener: FirstTabPresentableListener?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .brown
+    }
 }

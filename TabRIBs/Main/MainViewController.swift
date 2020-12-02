@@ -15,7 +15,17 @@ protocol MainPresentableListener: class {
     // interactor class.
 }
 
-final class MainViewController: UIViewController, MainPresentable, MainViewControllable {
+final class MainViewController: UITabBarController, MainPresentable, MainViewControllable {
 
     weak var listener: MainPresentableListener?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = .darkGray
+    }
+    
+    func attachViewControllers(_ viewControllers: [ViewControllable]) {
+        self.viewControllers = viewControllers.map { $0.uiviewController }
+    }
 }

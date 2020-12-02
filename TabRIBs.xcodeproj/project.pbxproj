@@ -12,10 +12,6 @@
 		14F8325A25772F3600E3CC65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F8325825772F3600E3CC65 /* Main.storyboard */; };
 		14F8325C25772F3600E3CC65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14F8325B25772F3600E3CC65 /* Assets.xcassets */; };
 		14F8325F25772F3600E3CC65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F8325D25772F3600E3CC65 /* LaunchScreen.storyboard */; };
-		14F83274257730B000E3CC65 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F83270257730B000E3CC65 /* RootInteractor.swift */; };
-		14F83275257730B000E3CC65 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F83271257730B000E3CC65 /* RootViewController.swift */; };
-		14F83276257730B000E3CC65 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F83272257730B000E3CC65 /* RootRouter.swift */; };
-		14F83277257730B000E3CC65 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F83273257730B000E3CC65 /* RootBuilder.swift */; };
 		14F8327A257730B500E3CC65 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F83279257730B500E3CC65 /* AppComponent.swift */; };
 		14F832B42577382B00E3CC65 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832B02577382B00E3CC65 /* MainRouter.swift */; };
 		14F832B52577382B00E3CC65 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832B12577382B00E3CC65 /* MainViewController.swift */; };
@@ -40,10 +36,6 @@
 		14F8325B25772F3600E3CC65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14F8325E25772F3600E3CC65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14F8326025772F3600E3CC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14F83270257730B000E3CC65 /* RootInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
-		14F83271257730B000E3CC65 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		14F83272257730B000E3CC65 /* RootRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
-		14F83273257730B000E3CC65 /* RootBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
 		14F83279257730B500E3CC65 /* AppComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		14F832B02577382B00E3CC65 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		14F832B12577382B00E3CC65 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +96,6 @@
 		14F8325125772F3600E3CC65 /* TabRIBs */ = {
 			isa = PBXGroup;
 			children = (
-				14F8326F257730B000E3CC65 /* Root */,
 				14F832AF2577381A00E3CC65 /* Main */,
 				14F832A62577371700E3CC65 /* FirstTab */,
 				14F832A72577371C00E3CC65 /* SecondTab */,
@@ -115,17 +106,6 @@
 				14F8326025772F3600E3CC65 /* Info.plist */,
 			);
 			path = TabRIBs;
-			sourceTree = "<group>";
-		};
-		14F8326F257730B000E3CC65 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				14F83270257730B000E3CC65 /* RootInteractor.swift */,
-				14F83271257730B000E3CC65 /* RootViewController.swift */,
-				14F83272257730B000E3CC65 /* RootRouter.swift */,
-				14F83273257730B000E3CC65 /* RootBuilder.swift */,
-			);
-			path = Root;
 			sourceTree = "<group>";
 		};
 		14F832A62577371700E3CC65 /* FirstTab */ = {
@@ -296,21 +276,17 @@
 				14F832C12577384000E3CC65 /* FirstTabInteractor.swift in Sources */,
 				14F832C92577389600E3CC65 /* SecondTabViewController.swift in Sources */,
 				14F832C02577384000E3CC65 /* FirstTabBuilder.swift in Sources */,
-				14F83275257730B000E3CC65 /* RootViewController.swift in Sources */,
 				14F832B42577382B00E3CC65 /* MainRouter.swift in Sources */,
 				14F832CA2577389600E3CC65 /* SecondTabBuilder.swift in Sources */,
 				14F832C82577389600E3CC65 /* SecondTabRouter.swift in Sources */,
 				14F8327A257730B500E3CC65 /* AppComponent.swift in Sources */,
-				14F83277257730B000E3CC65 /* RootBuilder.swift in Sources */,
 				14F832CB2577389600E3CC65 /* SecondTabInteractor.swift in Sources */,
 				14F832B62577382B00E3CC65 /* MainBuilder.swift in Sources */,
 				14F8325325772F3600E3CC65 /* AppDelegate.swift in Sources */,
 				14F832B72577382B00E3CC65 /* MainInteractor.swift in Sources */,
 				14F832BE2577384000E3CC65 /* FirstTabRouter.swift in Sources */,
 				14F832BF2577384000E3CC65 /* FirstTabViewController.swift in Sources */,
-				14F83274257730B000E3CC65 /* RootInteractor.swift in Sources */,
 				14F832B52577382B00E3CC65 /* MainViewController.swift in Sources */,
-				14F83276257730B000E3CC65 /* RootRouter.swift in Sources */,
 				14F8325525772F3600E3CC65 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,4 +18,9 @@ protocol SecondTabPresentableListener: class {
 final class SecondTabViewController: UIViewController, SecondTabPresentable, SecondTabViewControllable {
 
     weak var listener: SecondTabPresentableListener?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .darkGray
+    }
 }
