@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		14F8325325772F3600E3CC65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F8325225772F3600E3CC65 /* AppDelegate.swift */; };
 		14F8325525772F3600E3CC65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F8325425772F3600E3CC65 /* SceneDelegate.swift */; };
-		14F8325725772F3600E3CC65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F8325625772F3600E3CC65 /* ViewController.swift */; };
 		14F8325A25772F3600E3CC65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F8325825772F3600E3CC65 /* Main.storyboard */; };
 		14F8325C25772F3600E3CC65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14F8325B25772F3600E3CC65 /* Assets.xcassets */; };
 		14F8325F25772F3600E3CC65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F8325D25772F3600E3CC65 /* LaunchScreen.storyboard */; };
@@ -18,6 +17,18 @@
 		14F83276257730B000E3CC65 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F83272257730B000E3CC65 /* RootRouter.swift */; };
 		14F83277257730B000E3CC65 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F83273257730B000E3CC65 /* RootBuilder.swift */; };
 		14F8327A257730B500E3CC65 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F83279257730B500E3CC65 /* AppComponent.swift */; };
+		14F832B42577382B00E3CC65 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832B02577382B00E3CC65 /* MainRouter.swift */; };
+		14F832B52577382B00E3CC65 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832B12577382B00E3CC65 /* MainViewController.swift */; };
+		14F832B62577382B00E3CC65 /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832B22577382B00E3CC65 /* MainBuilder.swift */; };
+		14F832B72577382B00E3CC65 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832B32577382B00E3CC65 /* MainInteractor.swift */; };
+		14F832BE2577384000E3CC65 /* FirstTabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832BA2577384000E3CC65 /* FirstTabRouter.swift */; };
+		14F832BF2577384000E3CC65 /* FirstTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832BB2577384000E3CC65 /* FirstTabViewController.swift */; };
+		14F832C02577384000E3CC65 /* FirstTabBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832BC2577384000E3CC65 /* FirstTabBuilder.swift */; };
+		14F832C12577384000E3CC65 /* FirstTabInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832BD2577384000E3CC65 /* FirstTabInteractor.swift */; };
+		14F832C82577389600E3CC65 /* SecondTabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832C42577389600E3CC65 /* SecondTabRouter.swift */; };
+		14F832C92577389600E3CC65 /* SecondTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832C52577389600E3CC65 /* SecondTabViewController.swift */; };
+		14F832CA2577389600E3CC65 /* SecondTabBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832C62577389600E3CC65 /* SecondTabBuilder.swift */; };
+		14F832CB2577389600E3CC65 /* SecondTabInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832C72577389600E3CC65 /* SecondTabInteractor.swift */; };
 		4A85611B32E4626383AB52F1 /* Pods_TabRIBs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7790C368EB41DA580ED9E1A /* Pods_TabRIBs.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +36,6 @@
 		14F8324F25772F3600E3CC65 /* TabRIBs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabRIBs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14F8325225772F3600E3CC65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14F8325425772F3600E3CC65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		14F8325625772F3600E3CC65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		14F8325925772F3600E3CC65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14F8325B25772F3600E3CC65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14F8325E25772F3600E3CC65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +45,18 @@
 		14F83272257730B000E3CC65 /* RootRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		14F83273257730B000E3CC65 /* RootBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
 		14F83279257730B500E3CC65 /* AppComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
+		14F832B02577382B00E3CC65 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		14F832B12577382B00E3CC65 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		14F832B22577382B00E3CC65 /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
+		14F832B32577382B00E3CC65 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		14F832BA2577384000E3CC65 /* FirstTabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabRouter.swift; sourceTree = "<group>"; };
+		14F832BB2577384000E3CC65 /* FirstTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabViewController.swift; sourceTree = "<group>"; };
+		14F832BC2577384000E3CC65 /* FirstTabBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabBuilder.swift; sourceTree = "<group>"; };
+		14F832BD2577384000E3CC65 /* FirstTabInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabInteractor.swift; sourceTree = "<group>"; };
+		14F832C42577389600E3CC65 /* SecondTabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabRouter.swift; sourceTree = "<group>"; };
+		14F832C52577389600E3CC65 /* SecondTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabViewController.swift; sourceTree = "<group>"; };
+		14F832C62577389600E3CC65 /* SecondTabBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabBuilder.swift; sourceTree = "<group>"; };
+		14F832C72577389600E3CC65 /* SecondTabInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabInteractor.swift; sourceTree = "<group>"; };
 		2B3C93FA8DB889CFFBB7CE4C /* Pods-TabRIBs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabRIBs.release.xcconfig"; path = "Target Support Files/Pods-TabRIBs/Pods-TabRIBs.release.xcconfig"; sourceTree = "<group>"; };
 		4526E730D7D9AC72AB3EA652 /* Pods-TabRIBs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabRIBs.debug.xcconfig"; path = "Target Support Files/Pods-TabRIBs/Pods-TabRIBs.debug.xcconfig"; sourceTree = "<group>"; };
 		B7790C368EB41DA580ED9E1A /* Pods_TabRIBs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TabRIBs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,13 +105,13 @@
 			isa = PBXGroup;
 			children = (
 				14F8326F257730B000E3CC65 /* Root */,
+				14F832AF2577381A00E3CC65 /* Main */,
+				14F832A62577371700E3CC65 /* FirstTab */,
+				14F832A72577371C00E3CC65 /* SecondTab */,
+				14F832A82577372200E3CC65 /* Resources */,
 				14F8325225772F3600E3CC65 /* AppDelegate.swift */,
 				14F8325425772F3600E3CC65 /* SceneDelegate.swift */,
-				14F8325625772F3600E3CC65 /* ViewController.swift */,
-				14F8325825772F3600E3CC65 /* Main.storyboard */,
 				14F83279257730B500E3CC65 /* AppComponent.swift */,
-				14F8325B25772F3600E3CC65 /* Assets.xcassets */,
-				14F8325D25772F3600E3CC65 /* LaunchScreen.storyboard */,
 				14F8326025772F3600E3CC65 /* Info.plist */,
 			);
 			path = TabRIBs;
@@ -104,6 +126,49 @@
 				14F83273257730B000E3CC65 /* RootBuilder.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		14F832A62577371700E3CC65 /* FirstTab */ = {
+			isa = PBXGroup;
+			children = (
+				14F832BA2577384000E3CC65 /* FirstTabRouter.swift */,
+				14F832BB2577384000E3CC65 /* FirstTabViewController.swift */,
+				14F832BC2577384000E3CC65 /* FirstTabBuilder.swift */,
+				14F832BD2577384000E3CC65 /* FirstTabInteractor.swift */,
+			);
+			path = FirstTab;
+			sourceTree = "<group>";
+		};
+		14F832A72577371C00E3CC65 /* SecondTab */ = {
+			isa = PBXGroup;
+			children = (
+				14F832C42577389600E3CC65 /* SecondTabRouter.swift */,
+				14F832C52577389600E3CC65 /* SecondTabViewController.swift */,
+				14F832C62577389600E3CC65 /* SecondTabBuilder.swift */,
+				14F832C72577389600E3CC65 /* SecondTabInteractor.swift */,
+			);
+			path = SecondTab;
+			sourceTree = "<group>";
+		};
+		14F832A82577372200E3CC65 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				14F8325B25772F3600E3CC65 /* Assets.xcassets */,
+				14F8325D25772F3600E3CC65 /* LaunchScreen.storyboard */,
+				14F8325825772F3600E3CC65 /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		14F832AF2577381A00E3CC65 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				14F832B02577382B00E3CC65 /* MainRouter.swift */,
+				14F832B12577382B00E3CC65 /* MainViewController.swift */,
+				14F832B22577382B00E3CC65 /* MainBuilder.swift */,
+				14F832B32577382B00E3CC65 /* MainInteractor.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		EB80C922F3A0ADA401DC6484 /* Frameworks */ = {
@@ -228,12 +293,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F832C12577384000E3CC65 /* FirstTabInteractor.swift in Sources */,
+				14F832C92577389600E3CC65 /* SecondTabViewController.swift in Sources */,
+				14F832C02577384000E3CC65 /* FirstTabBuilder.swift in Sources */,
 				14F83275257730B000E3CC65 /* RootViewController.swift in Sources */,
+				14F832B42577382B00E3CC65 /* MainRouter.swift in Sources */,
+				14F832CA2577389600E3CC65 /* SecondTabBuilder.swift in Sources */,
+				14F832C82577389600E3CC65 /* SecondTabRouter.swift in Sources */,
 				14F8327A257730B500E3CC65 /* AppComponent.swift in Sources */,
 				14F83277257730B000E3CC65 /* RootBuilder.swift in Sources */,
-				14F8325725772F3600E3CC65 /* ViewController.swift in Sources */,
+				14F832CB2577389600E3CC65 /* SecondTabInteractor.swift in Sources */,
+				14F832B62577382B00E3CC65 /* MainBuilder.swift in Sources */,
 				14F8325325772F3600E3CC65 /* AppDelegate.swift in Sources */,
+				14F832B72577382B00E3CC65 /* MainInteractor.swift in Sources */,
+				14F832BE2577384000E3CC65 /* FirstTabRouter.swift in Sources */,
+				14F832BF2577384000E3CC65 /* FirstTabViewController.swift in Sources */,
 				14F83274257730B000E3CC65 /* RootInteractor.swift in Sources */,
+				14F832B52577382B00E3CC65 /* MainViewController.swift in Sources */,
 				14F83276257730B000E3CC65 /* RootRouter.swift in Sources */,
 				14F8325525772F3600E3CC65 /* SceneDelegate.swift in Sources */,
 			);
