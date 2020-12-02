@@ -19,8 +19,16 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
 
     weak var listener: SecondTabPresentableListener?
     
+    static func create() -> SecondTabViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(identifier: "SecondTabViewController") as! SecondTabViewController
+        return viewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .darkGray
+        
+        self.tabBarItem = UITabBarItem(title: "블로그", image: nil, selectedImage: nil)
     }
 }

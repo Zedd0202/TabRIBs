@@ -19,8 +19,15 @@ final class FirstTabViewController: UIViewController, FirstTabPresentable, First
 
     weak var listener: FirstTabPresentableListener?
     
+    static func create() -> FirstTabViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(identifier: "FirstTabViewController") as! FirstTabViewController
+        return viewController
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .brown
+        
+        self.tabBarItem = UITabBarItem(title: "홈", image: nil, selectedImage: nil)
     }
 }

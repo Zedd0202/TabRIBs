@@ -31,7 +31,7 @@ final class FirstTabBuilder: Builder<FirstTabDependency>, FirstTabBuildable {
 
     func build(withListener listener: FirstTabListener) -> FirstTabRouting {
         let component = FirstTabComponent(dependency: dependency)
-        let viewController = FirstTabViewController()
+        let viewController = FirstTabViewController.create()
         let interactor = FirstTabInteractor(presenter: viewController)
         interactor.listener = listener
         return FirstTabRouter(interactor: interactor, viewController: viewController)
