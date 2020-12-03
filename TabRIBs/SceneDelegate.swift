@@ -19,10 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
-
             let launchRouter = MainBuilder(dependency: AppComponent()).build()
+            let navigationController = UINavigationController(rootViewController: launchRouter.viewControllable.uiviewController)
+            window.rootViewController = navigationController
+            window.makeKeyAndVisible()
+            launchRouter.interactable.activate()
+            launchRouter.load()
             self.launchRouter = launchRouter
-            launchRouter.launchFromWindow(window)
         }
     }
 

@@ -13,6 +13,7 @@ protocol SecondTabPresentableListener: class {
     // TODO: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
+    func showPost()
 }
 
 final class SecondTabViewController: UIViewController, SecondTabPresentable, SecondTabViewControllable, UITableViewDelegate, UITableViewDataSource {
@@ -52,5 +53,9 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
         let cell = UITableViewCell()
         cell.textLabel?.text = "블로그 - \(indexPath.row)"
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.listener?.showPost()
     }
 }

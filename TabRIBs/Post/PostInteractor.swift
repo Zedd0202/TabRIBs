@@ -1,35 +1,34 @@
 //
-//  SecondTabInteractor.swift
+//  PostInteractor.swift
 //  TabRIBs
 //
-//  Created by Zedd on 2020/12/02.
+//  Created by Zedd on 2020/12/03.
 //
 
 import RIBs
 import RxSwift
 
-protocol SecondTabRouting: ViewableRouting {
+protocol PostRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
-    func showPost()
 }
 
-protocol SecondTabPresentable: Presentable {
-    var listener: SecondTabPresentableListener? { get set }
+protocol PostPresentable: Presentable {
+    var listener: PostPresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
-protocol SecondTabListener: class {
+protocol PostListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class SecondTabInteractor: PresentableInteractor<SecondTabPresentable>, SecondTabInteractable, SecondTabPresentableListener {
-    
-    weak var router: SecondTabRouting?
-    weak var listener: SecondTabListener?
+final class PostInteractor: PresentableInteractor<PostPresentable>, PostInteractable, PostPresentableListener {
+
+    weak var router: PostRouting?
+    weak var listener: PostListener?
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    override init(presenter: SecondTabPresentable) {
+    override init(presenter: PostPresentable) {
         super.init(presenter: presenter)
         presenter.listener = self
     }
@@ -42,9 +41,5 @@ final class SecondTabInteractor: PresentableInteractor<SecondTabPresentable>, Se
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
-    }
-    
-    func showPost() {
-        self.router?.showPost()
     }
 }

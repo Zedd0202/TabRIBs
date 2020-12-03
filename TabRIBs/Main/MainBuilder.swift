@@ -33,7 +33,7 @@ final class MainBuilder: Builder<MainDependency>, MainBuildable {
         let component = MainComponent(dependency: dependency)
         let firstBuilder = FirstTabBuilder(dependency: component)
         let secondBuilder = SecondTabBuilder(dependency: component)
-        let viewController = MainViewController()
+        let viewController = MainViewController.create()
         let interactor = MainInteractor(presenter: viewController)
         return MainRouter(interactor: interactor,
                           viewController: viewController,

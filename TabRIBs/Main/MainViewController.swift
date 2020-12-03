@@ -19,6 +19,12 @@ final class MainViewController: UITabBarController, MainPresentable, MainViewCon
 
     weak var listener: MainPresentableListener?
     
+    static func create() -> MainViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(identifier: "MainViewController") as! MainViewController
+        return viewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

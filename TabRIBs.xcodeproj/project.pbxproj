@@ -25,6 +25,10 @@
 		14F832C92577389600E3CC65 /* SecondTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832C52577389600E3CC65 /* SecondTabViewController.swift */; };
 		14F832CA2577389600E3CC65 /* SecondTabBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832C62577389600E3CC65 /* SecondTabBuilder.swift */; };
 		14F832CB2577389600E3CC65 /* SecondTabInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F832C72577389600E3CC65 /* SecondTabInteractor.swift */; };
+		14F8346C2578674000E3CC65 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F834682578674000E3CC65 /* PostRouter.swift */; };
+		14F8346D2578674000E3CC65 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F834692578674000E3CC65 /* PostViewController.swift */; };
+		14F8346E2578674000E3CC65 /* PostBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F8346A2578674000E3CC65 /* PostBuilder.swift */; };
+		14F8346F2578674000E3CC65 /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F8346B2578674000E3CC65 /* PostInteractor.swift */; };
 		4A85611B32E4626383AB52F1 /* Pods_TabRIBs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7790C368EB41DA580ED9E1A /* Pods_TabRIBs.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +53,10 @@
 		14F832C52577389600E3CC65 /* SecondTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabViewController.swift; sourceTree = "<group>"; };
 		14F832C62577389600E3CC65 /* SecondTabBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabBuilder.swift; sourceTree = "<group>"; };
 		14F832C72577389600E3CC65 /* SecondTabInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabInteractor.swift; sourceTree = "<group>"; };
+		14F834682578674000E3CC65 /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
+		14F834692578674000E3CC65 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		14F8346A2578674000E3CC65 /* PostBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBuilder.swift; sourceTree = "<group>"; };
+		14F8346B2578674000E3CC65 /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
 		2B3C93FA8DB889CFFBB7CE4C /* Pods-TabRIBs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabRIBs.release.xcconfig"; path = "Target Support Files/Pods-TabRIBs/Pods-TabRIBs.release.xcconfig"; sourceTree = "<group>"; };
 		4526E730D7D9AC72AB3EA652 /* Pods-TabRIBs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabRIBs.debug.xcconfig"; path = "Target Support Files/Pods-TabRIBs/Pods-TabRIBs.debug.xcconfig"; sourceTree = "<group>"; };
 		B7790C368EB41DA580ED9E1A /* Pods_TabRIBs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TabRIBs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +107,7 @@
 				14F832AF2577381A00E3CC65 /* Main */,
 				14F832A62577371700E3CC65 /* FirstTab */,
 				14F832A72577371C00E3CC65 /* SecondTab */,
+				14F834672578673400E3CC65 /* Post */,
 				14F832A82577372200E3CC65 /* Resources */,
 				14F8325225772F3600E3CC65 /* AppDelegate.swift */,
 				14F8325425772F3600E3CC65 /* SceneDelegate.swift */,
@@ -149,6 +158,17 @@
 				14F832B32577382B00E3CC65 /* MainInteractor.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		14F834672578673400E3CC65 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				14F834682578674000E3CC65 /* PostRouter.swift */,
+				14F834692578674000E3CC65 /* PostViewController.swift */,
+				14F8346A2578674000E3CC65 /* PostBuilder.swift */,
+				14F8346B2578674000E3CC65 /* PostInteractor.swift */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 		EB80C922F3A0ADA401DC6484 /* Frameworks */ = {
@@ -275,9 +295,13 @@
 			files = (
 				14F832C12577384000E3CC65 /* FirstTabInteractor.swift in Sources */,
 				14F832C92577389600E3CC65 /* SecondTabViewController.swift in Sources */,
+				14F8346C2578674000E3CC65 /* PostRouter.swift in Sources */,
+				14F8346F2578674000E3CC65 /* PostInteractor.swift in Sources */,
+				14F8346D2578674000E3CC65 /* PostViewController.swift in Sources */,
 				14F832C02577384000E3CC65 /* FirstTabBuilder.swift in Sources */,
 				14F832B42577382B00E3CC65 /* MainRouter.swift in Sources */,
 				14F832CA2577389600E3CC65 /* SecondTabBuilder.swift in Sources */,
+				14F8346E2578674000E3CC65 /* PostBuilder.swift in Sources */,
 				14F832C82577389600E3CC65 /* SecondTabRouter.swift in Sources */,
 				14F8327A257730B500E3CC65 /* AppComponent.swift in Sources */,
 				14F832CB2577389600E3CC65 /* SecondTabInteractor.swift in Sources */,
