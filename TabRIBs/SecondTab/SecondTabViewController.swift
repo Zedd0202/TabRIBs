@@ -15,8 +15,10 @@ protocol SecondTabPresentableListener: class {
     // interactor class.
 }
 
-final class SecondTabViewController: UIViewController, SecondTabPresentable, SecondTabViewControllable {
+final class SecondTabViewController: UIViewController, SecondTabPresentable, SecondTabViewControllable, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     weak var listener: SecondTabPresentableListener?
     
     static func create() -> SecondTabViewController {
@@ -27,8 +29,28 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupView()
+        self.setupTableView()
+    }
+    
+    func setupView() {
         self.view.backgroundColor = .darkGray
         
         self.tabBarItem = UITabBarItem(title: "블로그", image: nil, selectedImage: nil)
+    }
+    
+    func setupTableView() {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "블로그 - \(indexPath.row)"
+        return cell
     }
 }

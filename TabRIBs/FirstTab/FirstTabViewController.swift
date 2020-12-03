@@ -15,8 +15,9 @@ protocol FirstTabPresentableListener: class {
     // interactor class.
 }
 
-final class FirstTabViewController: UIViewController, FirstTabPresentable, FirstTabViewControllable {
+final class FirstTabViewController: UIViewController, FirstTabPresentable, FirstTabViewControllable, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
     weak var listener: FirstTabPresentableListener?
     
     static func create() -> FirstTabViewController {
@@ -26,8 +27,30 @@ final class FirstTabViewController: UIViewController, FirstTabPresentable, First
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupView()
+        self.setupTableView()
+    }
+    
+    private func setupView() {
         self.view.backgroundColor = .brown
         
         self.tabBarItem = UITabBarItem(title: "홈", image: nil, selectedImage: nil)
     }
+    
+    func setupTableView() {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "홈 - \(indexPath.row)"
+        return cell
+    }
+    
+
 }
