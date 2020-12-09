@@ -15,13 +15,14 @@ protocol MainInteractable: Interactable, FirstTabListener, SecondTabListener {
 protocol MainViewControllable: ViewControllable {
     // TODO: Declare methods the router invokes to manipulate the view hierarchy.
     func attachViewControllers(_ viewControllers: [ViewControllable])
-    func moveTo(_ tab: Tab)
 }
 
 final class MainRouter: LaunchRouter<MainInteractable, MainViewControllable>, MainRouting {
     
     let firstTabBuilder: FirstTabBuildable?
     let secondTabBuilder: SecondTabBuilder?
+    
+    var routers: [Routing] = []
     
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: MainInteractable,
@@ -36,10 +37,6 @@ final class MainRouter: LaunchRouter<MainInteractable, MainViewControllable>, Ma
         self.activateViewControllers()
     }
     
-    func routeTo(_ tab: Tab) {
-        self.viewController.moveTo(tab)
-    }
-    
     func activateViewControllers() {
         if let firstBuilder = self.firstTabBuilder, let secondBuilder = self.secondTabBuilder {
             let firstRouting = firstBuilder.build(withListener: self.interactor)
@@ -50,6 +47,7 @@ final class MainRouter: LaunchRouter<MainInteractable, MainViewControllable>, Ma
                 firstRouting.viewControllable,
                 secondRouting.viewControllable
             ])
+            self.routers = [firstRouting, secondRouting]
         }
     }
 }

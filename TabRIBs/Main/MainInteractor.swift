@@ -10,12 +10,14 @@ import RxSwift
 
 protocol MainRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
-    func routeTo(_ tab: Tab)
+    //func routeTo(_ tab: Tab)
 }
 
 protocol MainPresentable: Presentable {
     var listener: MainPresentableListener? { get set }
     
+    func moveTo(_ tab: Tab)
+    func scrollToTop(_ tab: Tab)
     // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
@@ -48,7 +50,12 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
     }
     
     func moveTo(_ tab: Tab) {
-        self.currentTab = tab
-        self.router?.routeTo(tab)
+        if self.currentTab == tab {
+            self.presenter.moveTo(tab)
+            self.presenter.scrollToTop(tab) // router로 보내서..router가 scrollToTop을 호출하게 하고싶었으나..
+        } else {
+            self.currentTab = tab
+            self.presenter.moveTo(tab)
+        }
     }
 }

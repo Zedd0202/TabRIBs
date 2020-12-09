@@ -30,7 +30,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDm-j5-ebU">
                                         <rect key="frame" x="207" y="0.0" width="207" height="50"/>
                                         <color key="backgroundColor" red="1" green="0.8980392157" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="블로그"/>
                                         <connections>
                                             <action selector="blogButtonDidTap:" destination="BNP-sC-5nZ" eventType="touchUpInside" id="TFf-kC-LRo"/>
                                         </connections>

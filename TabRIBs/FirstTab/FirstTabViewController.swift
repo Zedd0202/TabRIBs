@@ -56,4 +56,9 @@ final class FirstTabViewController: UIViewController, FirstTabPresentable, First
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
+    func scrollToTop() {
+        let top = CGPoint(x: 0, y: 0)
+        self.tableView.setContentOffset(top, animated: true)
+    }
 }

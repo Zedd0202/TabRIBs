@@ -73,4 +73,13 @@ final class MainViewController: UIViewController, MainPresentable, MainViewContr
             viewController.didMove(toParent: self)
         }
     }
+    
+    func scrollToTop(_ tab: Tab) {
+        switch tab {
+        case .home:
+            (self.viewControllers.first as! FirstTabViewController).scrollToTop()
+        case .blog:
+            break
+        }
+    }
 }
