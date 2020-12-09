@@ -13,6 +13,7 @@ protocol FirstTabPresentableListener: class {
     // TODO: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
+    func showPost()
 }
 
 final class FirstTabViewController: UIViewController, FirstTabPresentable, FirstTabViewControllable, UITableViewDelegate, UITableViewDataSource {
@@ -54,7 +55,7 @@ final class FirstTabViewController: UIViewController, FirstTabPresentable, First
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.listener?.showPost()
     }
     
     func scrollToTop() {

@@ -7,7 +7,7 @@
 
 import RIBs
 
-protocol FirstTabDependency: Dependency {
+protocol FirstTabDependency: PostDependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
 }
@@ -33,7 +33,8 @@ final class FirstTabBuilder: Builder<FirstTabDependency>, FirstTabBuildable {
         let component = FirstTabComponent(dependency: dependency)
         let viewController = FirstTabViewController.create()
         let interactor = FirstTabInteractor(presenter: viewController)
+        let postBuilder = PostBuilder(dependency: self.dependency)
         interactor.listener = listener
-        return FirstTabRouter(interactor: interactor, viewController: viewController)
+        return FirstTabRouter(interactor: interactor, viewController: viewController, postBuilder: postBuilder)
     }
 }

@@ -10,6 +10,7 @@ import RxSwift
 
 protocol FirstTabRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func showPost()
 }
 
 protocol FirstTabPresentable: Presentable {
@@ -41,5 +42,9 @@ final class FirstTabInteractor: PresentableInteractor<FirstTabPresentable>, Firs
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+    
+    func showPost() {
+        self.router?.showPost()
     }
 }

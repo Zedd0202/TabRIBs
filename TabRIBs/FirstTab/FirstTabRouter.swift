@@ -7,7 +7,7 @@
 
 import RIBs
 
-protocol FirstTabInteractable: Interactable {
+protocol FirstTabInteractable: Interactable, PostListener {
     var router: FirstTabRouting? { get set }
     var listener: FirstTabListener? { get set }
 }
@@ -19,8 +19,19 @@ protocol FirstTabViewControllable: ViewControllable {
 final class FirstTabRouter: ViewableRouter<FirstTabInteractable, FirstTabViewControllable>, FirstTabRouting {
 
     // TODO: Constructor inject child builder protocols to allow building children.
-    override init(interactor: FirstTabInteractable, viewController: FirstTabViewControllable) {
+    var postBuilder: PostBuildable?
+    
+    init(interactor: FirstTabInteractable, viewController: FirstTabViewControllable, postBuilder: PostBuildable) {
+        self.postBuilder = postBuilder
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
+    }
+    
+    func showPost() {
+        if let postBuilder = self.postBuilder {
+            let router = postBuilder.build(withListener: self.interactor)
+            self.attachChild(router)
+            self.viewController.push(router.viewControllable)
+        }
     }
 }
