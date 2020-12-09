@@ -10,6 +10,7 @@ import RxSwift
 
 protocol MainRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func routeTo(_ tab: Tab)
 }
 
 protocol MainPresentable: Presentable {
@@ -26,6 +27,8 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
 
     weak var router: MainRouting?
     weak var listener: MainListener?
+    
+    var currentTab: Tab = .home
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
@@ -42,5 +45,10 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+    
+    func moveTo(_ tab: Tab) {
+        self.currentTab = tab
+        self.router?.routeTo(tab)
     }
 }

@@ -15,10 +15,54 @@
                     <view key="view" contentMode="scaleToFill" id="R0J-Il-13L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hiF-U0-3gi">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8q2-Dt-ILO">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
+                                        <color key="backgroundColor" red="1" green="0.8980392157" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="홈"/>
+                                        <connections>
+                                            <action selector="homeButtonDidTap:" destination="BNP-sC-5nZ" eventType="touchUpInside" id="GLL-IA-3Wk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDm-j5-ebU">
+                                        <rect key="frame" x="207" y="0.0" width="207" height="50"/>
+                                        <color key="backgroundColor" red="1" green="0.8980392157" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="blogButtonDidTap:" destination="BNP-sC-5nZ" eventType="touchUpInside" id="TFf-kC-LRo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="xgR-5E-rzi"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3g-xl-lrB">
+                                <rect key="frame" x="0.0" y="88" width="414" height="724"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Bxd-hj-aC4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hiF-U0-3gi" firstAttribute="top" secondItem="E3g-xl-lrB" secondAttribute="bottom" id="FbE-Db-Car"/>
+                            <constraint firstItem="Bxd-hj-aC4" firstAttribute="trailing" secondItem="E3g-xl-lrB" secondAttribute="trailing" id="eQA-Uo-dE3"/>
+                            <constraint firstItem="Bxd-hj-aC4" firstAttribute="bottom" secondItem="hiF-U0-3gi" secondAttribute="bottom" id="gDz-Vu-hoX"/>
+                            <constraint firstItem="Bxd-hj-aC4" firstAttribute="trailing" secondItem="hiF-U0-3gi" secondAttribute="trailing" id="kom-O1-pZE"/>
+                            <constraint firstItem="hiF-U0-3gi" firstAttribute="leading" secondItem="Bxd-hj-aC4" secondAttribute="leading" id="lYX-iV-viN"/>
+                            <constraint firstItem="E3g-xl-lrB" firstAttribute="leading" secondItem="Bxd-hj-aC4" secondAttribute="leading" id="uOI-bN-r9o"/>
+                            <constraint firstItem="E3g-xl-lrB" firstAttribute="top" secondItem="Bxd-hj-aC4" secondAttribute="top" id="wOL-Xj-bH8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gnq-Iw-0lX"/>
+                    <connections>
+                        <outlet property="blogButton" destination="CDm-j5-ebU" id="7Om-X1-lSq"/>
+                        <outlet property="containerView" destination="E3g-xl-lrB" id="0T4-Mj-qgX"/>
+                        <outlet property="homeButton" destination="8q2-Dt-ILO" id="7cB-S1-VYW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dmx-bx-bTz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

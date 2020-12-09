@@ -133,8 +133,8 @@
 			children = (
 				14F832C42577389600E3CC65 /* SecondTabRouter.swift */,
 				14F832C52577389600E3CC65 /* SecondTabViewController.swift */,
-				14F832C62577389600E3CC65 /* SecondTabBuilder.swift */,
 				14F832C72577389600E3CC65 /* SecondTabInteractor.swift */,
+				14F832C62577389600E3CC65 /* SecondTabBuilder.swift */,
 			);
 			path = SecondTab;
 			sourceTree = "<group>";
