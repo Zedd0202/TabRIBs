@@ -31,13 +31,19 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
+        self.setupNavigation()
         self.setupTableView()
     }
     
     func setupView() {
         self.view.backgroundColor = .darkGray
-        
-        self.tabBarItem = UITabBarItem(title: "블로그", image: nil, selectedImage: nil)
+    }
+    
+    func setupNavigation() {
+        let item = UIBarButtonItem(title: "블로그 검색", image: nil, primaryAction: UIAction(handler: {_  in
+            
+        }), menu: nil)
+        self.navigationItem.leftBarButtonItem = item
     }
     
     func setupTableView() {

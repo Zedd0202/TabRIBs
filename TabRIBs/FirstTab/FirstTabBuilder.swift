@@ -38,3 +38,4 @@ final class FirstTabBuilder: Builder<FirstTabDependency>, FirstTabBuildable {
         return FirstTabRouter(interactor: interactor, viewController: viewController, postBuilder: postBuilder)
     }
 }
+

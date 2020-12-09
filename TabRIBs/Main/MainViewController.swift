@@ -13,6 +13,7 @@ protocol MainPresentableListener: class {
     // TODO: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
+    var currentTab: Tab { get }
     func moveTo(_ tab: Tab)
 }
 
@@ -30,6 +31,17 @@ final class MainViewController: UIViewController, MainPresentable, MainViewContr
     weak var listener: MainPresentableListener?
     
     var viewControllers: [UIViewController] = []
+    
+    override var navigationItem: UINavigationItem {
+        guard let tab = self.listener?.currentTab else { return super.navigationItem }
+        print(tab, "Zedd")
+        switch tab {
+        case .home:
+            return self.viewControllers.first?.navigationItem ?? super.navigationItem
+        case .blog:
+            return self.viewControllers.last?.navigationItem ?? super.navigationItem
+        }
+    }
     
     static func create() -> MainViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -72,6 +84,8 @@ final class MainViewController: UIViewController, MainPresentable, MainViewContr
             viewController.view.frame = self.containerView.bounds
             viewController.didMove(toParent: self)
         }
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func scrollToTop(_ tab: Tab) {

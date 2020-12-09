@@ -30,13 +30,19 @@ final class FirstTabViewController: UIViewController, FirstTabPresentable, First
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
+        self.setupNavigation()
         self.setupTableView()
     }
     
     private func setupView() {
         self.view.backgroundColor = .brown
-        
-        self.tabBarItem = UITabBarItem(title: "홈", image: nil, selectedImage: nil)
+    }
+    
+    func setupNavigation() {
+        let item = UIBarButtonItem(title: "검색", image: nil, primaryAction: UIAction(handler: {_  in
+            
+        }), menu: nil)
+        self.navigationItem.leftBarButtonItem = item
     }
     
     func setupTableView() {
