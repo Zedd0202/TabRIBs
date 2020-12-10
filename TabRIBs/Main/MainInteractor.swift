@@ -12,6 +12,7 @@ protocol MainRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
     //func routeTo(_ tab: Tab)
     func activateSearch(_ tab: Tab)
+    func deactivateSearch()
 }
 
 protocol MainPresentable: Presentable {
@@ -63,4 +64,9 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
     func showSearch() {
         self.router?.activateSearch(self.currentTab)
     }
+    
+    func deactivateSearch() {
+        self.router?.deactivateSearch()
+    }
+
 }

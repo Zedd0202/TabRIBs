@@ -14,6 +14,7 @@ protocol SearchPresentableListener: class {
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
     var tab: Tab { get }
+    func deactivateSearch()
 }
 
 final class SearchViewController: UIViewController, SearchPresentable, SearchViewControllable {
@@ -24,6 +25,15 @@ final class SearchViewController: UIViewController, SearchPresentable, SearchVie
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(identifier: "SearchViewController") as! SearchViewController
         return viewController
+    }
+    
+    deinit {
+        print("- deinit \(type(of: self))")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.listener?.deactivateSearch()
     }
     
     override func viewDidLoad() {

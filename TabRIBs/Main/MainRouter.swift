@@ -18,10 +18,12 @@ protocol MainViewControllable: ViewControllable {
 }
 
 final class MainRouter: LaunchRouter<MainInteractable, MainViewControllable>, MainRouting {
-    
+   
     let firstTabBuilder: FirstTabBuildable?
     let secondTabBuilder: SecondTabBuildable?
     let searchBuilder: SearchBuildable?
+    
+    var searchRouter: SearchRouting?
     
     var routers: [Routing] = []
     
@@ -56,9 +58,17 @@ final class MainRouter: LaunchRouter<MainInteractable, MainViewControllable>, Ma
     
     func activateSearch(_ tab: Tab) {
         if let searchBuilder = self.searchBuilder {
-            let routing = searchBuilder.build(withListener: self.interactor, tab: tab)
-            self.attachChild(routing)
-            self.viewController.push(routing.viewControllable)
+            let router = searchBuilder.build(withListener: self.interactor, tab: tab)
+            self.attachChild(router)
+            self.searchRouter = router
+            self.viewController.push(router.viewControllable)
+        }
+    }
+    
+    func deactivateSearch() {
+        if let search = self.searchRouter {
+            self.detachChild(search)
+            self.searchRouter = nil
         }
     }
 }

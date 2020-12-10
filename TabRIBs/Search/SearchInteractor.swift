@@ -19,6 +19,8 @@ protocol SearchPresentable: Presentable {
 
 protocol SearchListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func deactivateSearch()
+
 }
 
 final class SearchInteractor: PresentableInteractor<SearchPresentable>, SearchInteractable, SearchPresentableListener {
@@ -44,5 +46,9 @@ final class SearchInteractor: PresentableInteractor<SearchPresentable>, SearchIn
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+    
+    func deactivateSearch() {
+        self.listener?.deactivateSearch()
     }
 }
