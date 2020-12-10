@@ -10,7 +10,7 @@ import RxSwift
 
 protocol FirstTabRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
-    func showPost()
+    func activatePost()
 }
 
 protocol FirstTabPresentable: Presentable {
@@ -20,6 +20,7 @@ protocol FirstTabPresentable: Presentable {
 
 protocol FirstTabListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func showSearch()
 }
 
 final class FirstTabInteractor: PresentableInteractor<FirstTabPresentable>, FirstTabInteractable, FirstTabPresentableListener {
@@ -45,6 +46,11 @@ final class FirstTabInteractor: PresentableInteractor<FirstTabPresentable>, Firs
     }
     
     func showPost() {
-        self.router?.showPost()
+        self.router?.activatePost()
+    }
+    
+    func showSearch() {
+        self.listener?.showSearch()
+        //self.router?.activateSearch()
     }
 }

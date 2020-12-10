@@ -12,8 +12,8 @@ protocol MainDependency: Dependency {
     // created by this RIB.
 }
 
-final class MainComponent: Component<MainDependency>, FirstTabDependency, SecondTabDependency {
-
+final class MainComponent: Component<MainDependency>, FirstTabDependency, SecondTabDependency, SearchDependency {
+        
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
 }
 
@@ -33,11 +33,12 @@ final class MainBuilder: Builder<MainDependency>, MainBuildable {
         let component = MainComponent(dependency: dependency)
         let firstBuilder = FirstTabBuilder(dependency: component)
         let secondBuilder = SecondTabBuilder(dependency: component)
+        let searchBuilder = SearchBuilder(dependency: component)
         let viewController = MainViewController.create()
         let interactor = MainInteractor(presenter: viewController)
         return MainRouter(interactor: interactor,
                           viewController: viewController,
                           firstTabBuilder: firstBuilder,
-                          secondTabBuilder: secondBuilder)
+                          secondTabBuilder: secondBuilder, searchBuilder: searchBuilder)
     }
 }

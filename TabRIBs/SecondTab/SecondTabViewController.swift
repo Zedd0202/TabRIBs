@@ -14,6 +14,7 @@ protocol SecondTabPresentableListener: class {
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
     func showPost()
+    func showSearch()
 }
 
 final class SecondTabViewController: UIViewController, SecondTabPresentable, SecondTabViewControllable, UITableViewDelegate, UITableViewDataSource {
@@ -41,7 +42,7 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
     
     func setupNavigation() {
         let item = UIBarButtonItem(title: "블로그 검색", image: nil, primaryAction: UIAction(handler: {_  in
-            
+            self.listener?.showSearch()
         }), menu: nil)
         self.navigationItem.leftBarButtonItem = item
     }

@@ -22,5 +22,6 @@ final class PostViewController: UIViewController, PostPresentable, PostViewContr
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemYellow
+        self.title = "글뷰"
     }
 }

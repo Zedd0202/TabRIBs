@@ -14,6 +14,7 @@ protocol FirstTabPresentableListener: class {
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
     func showPost()
+    func showSearch()
 }
 
 final class FirstTabViewController: UIViewController, FirstTabPresentable, FirstTabViewControllable, UITableViewDelegate, UITableViewDataSource {
@@ -39,8 +40,8 @@ final class FirstTabViewController: UIViewController, FirstTabPresentable, First
     }
     
     func setupNavigation() {
-        let item = UIBarButtonItem(title: "검색", image: nil, primaryAction: UIAction(handler: {_  in
-            
+        let item = UIBarButtonItem(title: "검색", image: nil, primaryAction: UIAction(handler: { _  in
+            self.listener?.showSearch()
         }), menu: nil)
         self.navigationItem.leftBarButtonItem = item
     }

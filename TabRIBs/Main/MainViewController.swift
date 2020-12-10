@@ -34,7 +34,6 @@ final class MainViewController: UIViewController, MainPresentable, MainViewContr
     
     override var navigationItem: UINavigationItem {
         guard let tab = self.listener?.currentTab else { return super.navigationItem }
-        print(tab, "Zedd")
         switch tab {
         case .home:
             return self.viewControllers.first?.navigationItem ?? super.navigationItem

@@ -11,6 +11,7 @@ import RxSwift
 protocol MainRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
     //func routeTo(_ tab: Tab)
+    func activateSearch(_ tab: Tab)
 }
 
 protocol MainPresentable: Presentable {
@@ -57,5 +58,9 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
             self.currentTab = tab
             self.presenter.moveTo(tab)
         }
+    }
+    
+    func showSearch() {
+        self.router?.activateSearch(self.currentTab)
     }
 }

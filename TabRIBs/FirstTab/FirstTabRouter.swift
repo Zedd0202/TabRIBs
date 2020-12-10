@@ -27,11 +27,15 @@ final class FirstTabRouter: ViewableRouter<FirstTabInteractable, FirstTabViewCon
         interactor.router = self
     }
     
-    func showPost() {
+    func activatePost() {
         if let postBuilder = self.postBuilder {
             let router = postBuilder.build(withListener: self.interactor)
             self.attachChild(router)
             self.viewController.push(router.viewControllable)
         }
+    }
+    
+    func activateSearch() {
+        
     }
 }

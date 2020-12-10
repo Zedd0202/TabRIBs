@@ -7,7 +7,7 @@
 
 import RIBs
 
-protocol MainInteractable: Interactable, FirstTabListener, SecondTabListener {
+protocol MainInteractable: Interactable, FirstTabListener, SecondTabListener, SearchListener {
     var router: MainRouting? { get set }
     var listener: MainListener? { get set }
 }
@@ -20,7 +20,8 @@ protocol MainViewControllable: ViewControllable {
 final class MainRouter: LaunchRouter<MainInteractable, MainViewControllable>, MainRouting {
     
     let firstTabBuilder: FirstTabBuildable?
-    let secondTabBuilder: SecondTabBuilder?
+    let secondTabBuilder: SecondTabBuildable?
+    let searchBuilder: SearchBuildable?
     
     var routers: [Routing] = []
     
@@ -28,9 +29,11 @@ final class MainRouter: LaunchRouter<MainInteractable, MainViewControllable>, Ma
     init(interactor: MainInteractable,
          viewController: MainViewControllable,
          firstTabBuilder: FirstTabBuildable,
-         secondTabBuilder: SecondTabBuilder) {
+         secondTabBuilder: SecondTabBuildable,
+         searchBuilder: SearchBuildable) {
         self.firstTabBuilder = firstTabBuilder
         self.secondTabBuilder = secondTabBuilder
+        self.searchBuilder = searchBuilder
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
         
@@ -48,6 +51,14 @@ final class MainRouter: LaunchRouter<MainInteractable, MainViewControllable>, Ma
                 secondRouting.viewControllable
             ])
             self.routers = [firstRouting, secondRouting]
+        }
+    }
+    
+    func activateSearch(_ tab: Tab) {
+        if let searchBuilder = self.searchBuilder {
+            let routing = searchBuilder.build(withListener: self.interactor, tab: tab)
+            self.attachChild(routing)
+            self.viewController.push(routing.viewControllable)
         }
     }
 }

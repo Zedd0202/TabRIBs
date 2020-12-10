@@ -27,13 +27,12 @@ final class SecondTabRouter: ViewableRouter<SecondTabInteractable, SecondTabView
         interactor.router = self
     }
     
-    func showPost() {
+    func activatePost() {
         if let builder = self.postBuilder {
             let router = builder.build(withListener: self.interactor)
             self.attachChild(router)
             viewController.push(router.viewControllable)
         }
-        
     }
 }
 

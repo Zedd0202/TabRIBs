@@ -1,36 +1,37 @@
 //
-//  SecondTabInteractor.swift
+//  SearchInteractor.swift
 //  TabRIBs
 //
-//  Created by Zedd on 2020/12/02.
+//  Created by Zedd on 2020/12/10.
 //
 
 import RIBs
 import RxSwift
 
-protocol SecondTabRouting: ViewableRouting {
+protocol SearchRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
-    func activatePost()
 }
 
-protocol SecondTabPresentable: Presentable {
-    var listener: SecondTabPresentableListener? { get set }
+protocol SearchPresentable: Presentable {
+    var listener: SearchPresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
-protocol SecondTabListener: class {
+protocol SearchListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
-    func showSearch()
 }
 
-final class SecondTabInteractor: PresentableInteractor<SecondTabPresentable>, SecondTabInteractable, SecondTabPresentableListener {
+final class SearchInteractor: PresentableInteractor<SearchPresentable>, SearchInteractable, SearchPresentableListener {
+
+    weak var router: SearchRouting?
+    weak var listener: SearchListener?
     
-    weak var router: SecondTabRouting?
-    weak var listener: SecondTabListener?
+    var tab: Tab
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    override init(presenter: SecondTabPresentable) {
+    init(presenter: SearchPresentable, tab: Tab) {
+        self.tab = tab
         super.init(presenter: presenter)
         presenter.listener = self
     }
@@ -43,13 +44,5 @@ final class SecondTabInteractor: PresentableInteractor<SecondTabPresentable>, Se
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
-    }
-    
-    func showPost() {
-        self.router?.activatePost()
-    }
-    
-    func showSearch() {
-        self.listener?.showSearch()
     }
 }
