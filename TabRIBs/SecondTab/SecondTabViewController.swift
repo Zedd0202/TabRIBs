@@ -65,4 +65,8 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.listener?.showPost()
     }
+    
+    func scrollToTop() {
+        self.tableView.setContentOffset(.zero, animated: true)
+    }
 }

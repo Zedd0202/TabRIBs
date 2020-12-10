@@ -66,7 +66,6 @@ final class FirstTabViewController: UIViewController, FirstTabPresentable, First
     }
     
     func scrollToTop() {
-        let top = CGPoint(x: 0, y: 0)
-        self.tableView.setContentOffset(top, animated: true)
+        self.tableView.setContentOffset(.zero, animated: true)
     }
 }

@@ -39,6 +39,7 @@ final class MainBuilder: Builder<MainDependency>, MainBuildable {
         return MainRouter(interactor: interactor,
                           viewController: viewController,
                           firstTabBuilder: firstBuilder,
-                          secondTabBuilder: secondBuilder, searchBuilder: searchBuilder)
+                          secondTabBuilder: secondBuilder,
+                          searchBuilder: searchBuilder)
     }
 }

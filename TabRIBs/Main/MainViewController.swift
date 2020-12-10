@@ -92,7 +92,7 @@ final class MainViewController: UIViewController, MainPresentable, MainViewContr
         case .home:
             (self.viewControllers.first as! FirstTabViewController).scrollToTop()
         case .blog:
-            break
+            (self.viewControllers.last as! SecondTabViewController).scrollToTop()
         }
     }
 }
