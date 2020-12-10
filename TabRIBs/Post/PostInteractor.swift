@@ -19,10 +19,11 @@ protocol PostPresentable: Presentable {
 
 protocol PostListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func deactivatePost()
 }
 
 final class PostInteractor: PresentableInteractor<PostPresentable>, PostInteractable, PostPresentableListener {
-
+   
     weak var router: PostRouting?
     weak var listener: PostListener?
 
@@ -42,4 +43,9 @@ final class PostInteractor: PresentableInteractor<PostPresentable>, PostInteract
         super.willResignActive()
         // TODO: Pause any business logic.
     }
+    
+    func deactivatePost() {
+        self.listener?.deactivatePost()
+    }
+
 }

@@ -20,6 +20,7 @@ final class SecondTabRouter: ViewableRouter<SecondTabInteractable, SecondTabView
 
     // TODO: Constructor inject child builder protocols to allow building children.
     var postBuilder: PostBuildable?
+    var postRouting: PostRouting?
     
     init(interactor: SecondTabInteractable, viewController: SecondTabViewControllable, postBuilder: PostBuilder) {
         self.postBuilder = postBuilder
@@ -31,9 +32,18 @@ final class SecondTabRouter: ViewableRouter<SecondTabInteractable, SecondTabView
         if let builder = self.postBuilder {
             let router = builder.build(withListener: self.interactor)
             self.attachChild(router)
+            self.postRouting = router
             viewController.push(router.viewControllable)
         }
     }
+    
+    func deactivatePost() {
+        if let post = self.postRouting {
+            self.detachChild(post)
+            self.postRouting = nil
+        }
+    }
+
 }
 
 extension ViewControllable {

@@ -20,6 +20,7 @@ final class FirstTabRouter: ViewableRouter<FirstTabInteractable, FirstTabViewCon
 
     // TODO: Constructor inject child builder protocols to allow building children.
     var postBuilder: PostBuildable?
+    var postRouting: PostRouting?
     
     init(interactor: FirstTabInteractable, viewController: FirstTabViewControllable, postBuilder: PostBuildable) {
         self.postBuilder = postBuilder
@@ -31,11 +32,16 @@ final class FirstTabRouter: ViewableRouter<FirstTabInteractable, FirstTabViewCon
         if let postBuilder = self.postBuilder {
             let router = postBuilder.build(withListener: self.interactor)
             self.attachChild(router)
+            self.postRouting = router
             self.viewController.push(router.viewControllable)
         }
     }
     
-    func activateSearch() {
-        
+  
+    func deactivatePost() {
+        if let post = self.postRouting {
+            self.detachChild(post)
+            self.postRouting = nil
+        }
     }
 }
