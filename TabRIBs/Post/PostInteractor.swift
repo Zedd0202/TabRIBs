@@ -10,6 +10,7 @@ import RxSwift
 
 protocol PostRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func activateBlog()
 }
 
 protocol PostPresentable: Presentable {
@@ -48,4 +49,7 @@ final class PostInteractor: PresentableInteractor<PostPresentable>, PostInteract
         self.listener?.deactivatePost()
     }
 
+    func showBlog() {
+        self.router?.activateBlog()
+    }
 }

@@ -14,6 +14,7 @@ protocol PostPresentableListener: class {
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
     func deactivatePost()
+    func showBlog()
 }
 
 final class PostViewController: UIViewController, PostPresentable, PostViewControllable {
@@ -24,6 +25,10 @@ final class PostViewController: UIViewController, PostPresentable, PostViewContr
         super.viewDidLoad()
         self.view.backgroundColor = .systemYellow
         self.title = "글뷰"
+        let barButton = UIBarButtonItem(title: "블로그", image: nil, primaryAction: UIAction(handler: { _ in
+            self.listener?.showBlog()
+        }), menu: nil)
+        self.navigationItem.rightBarButtonItem = barButton
     }
     
     deinit {

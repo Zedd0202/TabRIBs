@@ -17,10 +17,14 @@ protocol PostViewControllable: ViewControllable {
 }
 
 final class PostRouter: ViewableRouter<PostInteractable, PostViewControllable>, PostRouting {
-
+    
     // TODO: Constructor inject child builder protocols to allow building children.
     override init(interactor: PostInteractable, viewController: PostViewControllable) {
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
+    }
+    
+    func activateBlog() {
+        
     }
 }
