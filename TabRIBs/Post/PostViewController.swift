@@ -37,6 +37,6 @@ final class PostViewController: UIViewController, PostPresentable, PostViewContr
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.listener?.deactivatePost()
+        //self.listener?.deactivatePost()
     }
 }

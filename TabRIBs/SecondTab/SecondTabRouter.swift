@@ -18,10 +18,11 @@ protocol SecondTabViewControllable: ViewControllable {
 
 final class SecondTabRouter: ViewableRouter<SecondTabInteractable, SecondTabViewControllable>, SecondTabRouting {
 
+
     // TODO: Constructor inject child builder protocols to allow building children.
     var postBuilder: PostBuildable?
     var postRouting: PostRouting?
-    
+        
     init(interactor: SecondTabInteractable, viewController: SecondTabViewControllable, postBuilder: PostBuilder) {
         self.postBuilder = postBuilder
         super.init(interactor: interactor, viewController: viewController)
@@ -43,7 +44,8 @@ final class SecondTabRouter: ViewableRouter<SecondTabInteractable, SecondTabView
             self.postRouting = nil
         }
     }
-
+    // 나 자신을 attach할 순 없자나. Main에게 넘겨야하는게 맞는건가..?
+    
 }
 
 extension ViewControllable {

@@ -13,6 +13,7 @@ protocol MainRouting: ViewableRouting {
     //func routeTo(_ tab: Tab)
     func activateSearch(_ tab: Tab)
     func deactivateSearch()
+    func activateBlog()
 }
 
 protocol MainPresentable: Presentable {
@@ -68,5 +69,8 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
     func deactivateSearch() {
         self.router?.deactivateSearch()
     }
-
+    
+    func activateBlog() {
+        self.router?.activateBlog()
+    }
 }

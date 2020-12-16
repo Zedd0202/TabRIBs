@@ -23,8 +23,4 @@ final class PostRouter: ViewableRouter<PostInteractable, PostViewControllable>, 
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
-    
-    func activateBlog() {
-        
-    }
 }

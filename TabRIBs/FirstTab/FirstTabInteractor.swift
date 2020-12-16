@@ -25,7 +25,7 @@ protocol FirstTabListener: class {
 }
 
 final class FirstTabInteractor: PresentableInteractor<FirstTabPresentable>, FirstTabInteractable, FirstTabPresentableListener {
-
+    
     weak var router: FirstTabRouting?
     weak var listener: FirstTabListener?
 
@@ -58,4 +58,9 @@ final class FirstTabInteractor: PresentableInteractor<FirstTabPresentable>, Firs
     func deactivatePost() {
         self.router?.deactivatePost()
     }
+    
+    func activateBlog() {
+        
+    }
+    
 }

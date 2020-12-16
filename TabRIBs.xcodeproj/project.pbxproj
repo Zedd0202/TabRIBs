@@ -102,6 +102,13 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		14C2C142258A070E00000D05 /* Blog */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Blog;
+			sourceTree = "<group>";
+		};
 		14F8324625772F3600E3CC65 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +130,7 @@
 		14F8325125772F3600E3CC65 /* TabRIBs */ = {
 			isa = PBXGroup;
 			children = (
+				14C2C142258A070E00000D05 /* Blog */,
 				14F832AF2577381A00E3CC65 /* Main */,
 				14F832A62577371700E3CC65 /* FirstTab */,
 				14F832A72577371C00E3CC65 /* SecondTab */,

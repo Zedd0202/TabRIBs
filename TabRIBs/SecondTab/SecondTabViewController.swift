@@ -44,7 +44,7 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
         let item = UIBarButtonItem(title: "블로그 검색", image: nil, primaryAction: UIAction(handler: {_  in
             self.listener?.showSearch()
         }), menu: nil)
-        self.navigationItem.leftBarButtonItem = item
+        self.navigationItem.rightBarButtonItem = item
     }
     
     func setupTableView() {

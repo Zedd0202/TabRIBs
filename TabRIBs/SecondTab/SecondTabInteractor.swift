@@ -22,10 +22,11 @@ protocol SecondTabPresentable: Presentable {
 protocol SecondTabListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
     func showSearch()
+    func activateBlog()
 }
 
 final class SecondTabInteractor: PresentableInteractor<SecondTabPresentable>, SecondTabInteractable, SecondTabPresentableListener {
-   
+    
     weak var router: SecondTabRouting?
     weak var listener: SecondTabListener?
 
@@ -56,5 +57,9 @@ final class SecondTabInteractor: PresentableInteractor<SecondTabPresentable>, Se
     
     func deactivatePost() {
         self.router?.deactivatePost()
+    }
+    
+    func activateBlog() {
+        self.listener?.activateBlog()
     }
 }

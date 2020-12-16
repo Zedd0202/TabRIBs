@@ -71,4 +71,10 @@ final class MainRouter: LaunchRouter<MainInteractable, MainViewControllable>, Ma
             self.searchRouter = nil
         }
     }
+    
+    func activateBlog() {
+        guard let router = self.secondTabBuilder?.build(withListener: self.interactor) else { return }
+        self.attachChild(router)
+        self.viewController.push(router.viewControllable)
+    }
 }
