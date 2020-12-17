@@ -22,17 +22,19 @@ protocol SecondTabPresentable: Presentable {
 protocol SecondTabListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
     func showSearch()
-    func activateBlog()
+    func activateBlog(hasAuth: Bool)
 }
 
 final class SecondTabInteractor: PresentableInteractor<SecondTabPresentable>, SecondTabInteractable, SecondTabPresentableListener {
     
     weak var router: SecondTabRouting?
     weak var listener: SecondTabListener?
-
+    
+    var hasAuth: Bool
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    override init(presenter: SecondTabPresentable) {
+    init(presenter: SecondTabPresentable, hasAuth: Bool) {
+        self.hasAuth = hasAuth
         super.init(presenter: presenter)
         presenter.listener = self
     }
@@ -60,6 +62,9 @@ final class SecondTabInteractor: PresentableInteractor<SecondTabPresentable>, Se
     }
     
     func activateBlog() {
-        self.listener?.activateBlog()
+        // user.request.
+        // 현재 유저의 정보가 interactor안에 있을 테니.
+        // 그거 보고 hasAuth결정.
+        self.listener?.activateBlog(hasAuth: Bool.random())
     }
 }

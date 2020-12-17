@@ -45,7 +45,7 @@ final class MainRouter: LaunchRouter<MainInteractable, MainViewControllable>, Ma
     func activateViewControllers() {
         if let firstBuilder = self.firstTabBuilder, let secondBuilder = self.secondTabBuilder {
             let firstRouting = firstBuilder.build(withListener: self.interactor)
-            let secondRouting = secondBuilder.build(withListener: self.interactor)
+            let secondRouting = secondBuilder.build(withListener: self.interactor, hasAuth: true)
             self.attachChild(firstRouting)
             self.attachChild(secondRouting)
             self.viewController.attachViewControllers([
@@ -72,8 +72,8 @@ final class MainRouter: LaunchRouter<MainInteractable, MainViewControllable>, Ma
         }
     }
     
-    func activateBlog() {
-        guard let router = self.secondTabBuilder?.build(withListener: self.interactor) else { return }
+    func activateBlog(hasAuth: Bool) {
+        guard let router = self.secondTabBuilder?.build(withListener: self.interactor, hasAuth: hasAuth) else { return }
         self.attachChild(router)
         self.viewController.push(router.viewControllable)
     }

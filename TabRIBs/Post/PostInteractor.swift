@@ -24,6 +24,7 @@ protocol PostListener: class {
 }
 
 final class PostInteractor: PresentableInteractor<PostPresentable>, PostInteractable, PostPresentableListener {
+ 
     func showSearch() {
         
     }

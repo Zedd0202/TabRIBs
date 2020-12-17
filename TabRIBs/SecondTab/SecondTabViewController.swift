@@ -13,6 +13,7 @@ protocol SecondTabPresentableListener: class {
     // TODO: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
+    var hasAuth: Bool { get }
     func showPost()
     func showSearch()
 }
@@ -45,6 +46,8 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
             self.listener?.showSearch()
         }), menu: nil)
         self.navigationItem.rightBarButtonItem = item
+        self.title = self.listener?.hasAuth == true ? "내 블로그" : "다른 사람 블로그"
+        
     }
     
     func setupTableView() {
