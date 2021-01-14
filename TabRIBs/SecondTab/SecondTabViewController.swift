@@ -47,7 +47,6 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
         }), menu: nil)
         self.navigationItem.rightBarButtonItem = item
         self.title = self.listener?.hasAuth == true ? "내 블로그" : "다른 사람 블로그"
-        
     }
     
     func setupTableView() {

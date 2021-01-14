@@ -6,7 +6,7 @@ target 'TabRIBs' do
   use_frameworks!
 
   pod 'RIBs', '~> 0.9'
-
+  pod 'ReactorKit'
   # Pods for TabRIBs
 
 end
