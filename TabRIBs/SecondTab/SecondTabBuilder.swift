@@ -38,7 +38,8 @@ final class SecondTabBuilder: Builder<SecondTabDependency>, SecondTabBuildable {
     func build(withListener listener: SecondTabListener, hasAuth: Bool) -> SecondTabRouting {
         let component = SecondTabComponent(dependency: self.dependency, hasAuth: hasAuth)
         let viewController = SecondTabViewController.create()
-        let interactor = SecondTabInteractor(presenter: viewController, hasAuth: component.hasAuth)
+        //let interactor = SecondTabInteractor(presenter: viewController, hasAuth: component.hasAuth)
+        let interactor = SecondTabInteractor(presenter: viewController)
         interactor.listener = listener
         let postBuilder = PostBuilder(dependency: dependency)
         return SecondTabRouter(interactor: interactor, viewController: viewController, postBuilder: postBuilder)

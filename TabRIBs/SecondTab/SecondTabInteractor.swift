@@ -7,6 +7,7 @@
 
 import RIBs
 import RxSwift
+import ReactorKit
 
 protocol SecondTabRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
@@ -16,6 +17,8 @@ protocol SecondTabRouting: ViewableRouting {
 
 protocol SecondTabPresentable: Presentable {
     var listener: SecondTabPresentableListener? { get set }
+    var disposeBag: DisposeBag { get set }
+    func bind() 
     // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
@@ -25,16 +28,30 @@ protocol SecondTabListener: class {
     func activateBlog(hasAuth: Bool)
 }
 
-final class SecondTabInteractor: PresentableInteractor<SecondTabPresentable>, SecondTabInteractable, SecondTabPresentableListener {
+final class SecondTabInteractor: PresentableInteractor<SecondTabPresentable>, SecondTabInteractable, SecondTabPresentableListener, Reactor {
+ 
+    enum Action {
+        case load
+    }
+    
+    enum Mutation {
+        case setUser
+    }
+    
+    struct State {
+        var hasAuth: Bool = false
+    }
     
     weak var router: SecondTabRouting?
     weak var listener: SecondTabListener?
     
-    var hasAuth: Bool
+    var initialState: State
+
+    //var hasAuth: Bool
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    init(presenter: SecondTabPresentable, hasAuth: Bool) {
-        self.hasAuth = hasAuth
+    override init(presenter: SecondTabPresentable) {
+        self.initialState = State()
         super.init(presenter: presenter)
         presenter.listener = self
     }
@@ -66,5 +83,23 @@ final class SecondTabInteractor: PresentableInteractor<SecondTabPresentable>, Se
         // 현재 유저의 정보가 interactor안에 있을 테니.
         // 그거 보고 hasAuth결정.
         self.listener?.activateBlog(hasAuth: Bool.random())
+    }
+}
+
+extension SecondTabInteractor {
+    func mutate(action: Action) -> Observable<Mutation> {
+        switch action {
+        case .load:
+            return Observable.just(.setUser)
+        }
+    }
+    
+    func reduce(state: State, mutation: Mutation) -> State {
+        var newState = state
+        switch mutation {
+        case .setUser:
+            newState.hasAuth = true
+        }
+        return newState
     }
 }
