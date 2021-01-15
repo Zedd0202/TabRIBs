@@ -40,7 +40,9 @@ final class SecondTabBuilder: Builder<SecondTabDependency>, SecondTabBuildable {
         let viewController = SecondTabViewController.create()
         //let interactor = SecondTabInteractor(presenter: viewController, hasAuth: component.hasAuth)
         let interactor = SecondTabInteractor(presenter: viewController)
-        interactor.listener = listener
+        viewController.observableState = interactor.state
+        viewController.currentState = interactor.currentState
+        //interactor.listener = listener
         let postBuilder = PostBuilder(dependency: dependency)
         return SecondTabRouter(interactor: interactor, viewController: viewController, postBuilder: postBuilder)
     }

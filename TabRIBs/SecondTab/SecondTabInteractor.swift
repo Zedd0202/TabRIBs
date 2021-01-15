@@ -18,7 +18,9 @@ protocol SecondTabRouting: ViewableRouting {
 protocol SecondTabPresentable: Presentable {
     var listener: SecondTabPresentableListener? { get set }
     var disposeBag: DisposeBag { get set }
-    func bind() 
+    func bind()
+    
+    var currentState: SecondTabInteractor.State! { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
@@ -100,6 +102,7 @@ extension SecondTabInteractor {
         case .setUser:
             newState.hasAuth = true
         }
+        self.presenter.currentState = newState
         return newState
     }
 }

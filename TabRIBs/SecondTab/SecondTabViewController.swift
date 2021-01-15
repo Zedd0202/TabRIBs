@@ -17,18 +17,21 @@ protocol SecondTabPresentableListener: class {
     //var hasAuth: Bool { get }
     var action: ActionSubject<SecondTabInteractor.Action> { get }
     var state: Observable<SecondTabInteractor.State> { get }
-    var currentState: SecondTabInteractor.State { get }
     func showPost()
     func showSearch()
 }
 
 final class SecondTabViewController: UIViewController, SecondTabPresentable, SecondTabViewControllable, UITableViewDelegate, UITableViewDataSource {
     
+    var currentState: SecondTabInteractor.State!
+            
     @IBOutlet weak var tableView: UITableView!
     
     weak var listener: SecondTabPresentableListener?
     
     var disposeBag = DisposeBag()
+     
+    var observableState: Observable<SecondTabInteractor.State>!
     
     static func create() -> SecondTabViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -47,11 +50,12 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
     
     // MARK: - SecondTabPresentable
     func bind() {
-        self.listener?.state.map { $0.hasAuth }
-            .subscribe(onNext: { [weak self] in
-                // hasAuth가 false -> true로.
-                self?.tableView.reloadData()
-            }).disposed(by: self.disposeBag)
+        self.observableState.subscribe(onNext: { (state) in
+            // hasAuth가 false -> true로.
+            
+            print(self.currentState.hasAuth)
+            self.tableView.reloadData()
+        }).disposed(by: self.disposeBag)
     }
     
     func setupView() {
@@ -63,7 +67,7 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
             self.listener?.showSearch()
         }), menu: nil)
         self.navigationItem.rightBarButtonItem = item
-        self.title = self.listener?.currentState.hasAuth == true ? "내 블로그" : "다른 사람 블로그"
+        self.title = self.currentState.hasAuth == true ? "내 블로그" : "다른 사람 블로그"
     }
     
     func setupTableView() {
@@ -77,7 +81,7 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let title = self.listener?.currentState.hasAuth == true ? "내 글" : "다른 사람 글"
+        let title = self.currentState.hasAuth == true ? "내 글" : "다른 사람 글"
         cell.textLabel?.text = "\(title)-\(indexPath.row)"
         return cell
     }
