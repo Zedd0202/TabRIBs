@@ -11,14 +11,11 @@ import UIKit
 import ReactorKit
 
 protocol SecondTabPresentableListener: class {
-    // TODO: Declare properties and methods that the view controller can invoke to perform
-    // business logic, such as signIn(). This protocol is implemented by the corresponding
-    // interactor class.
-    //var hasAuth: Bool { get }
-    var action: ActionSubject<SecondTabInteractor.Action> { get }
-    var state: Observable<SecondTabInteractor.State> { get }
+    //var action: ActionSubject<SecondTabInteractor.Action> { get }
+    
     func showPost()
     func showSearch()
+    func loadUserInfo()
 }
 
 final class SecondTabViewController: UIViewController, SecondTabPresentable, SecondTabViewControllable, UITableViewDelegate, UITableViewDataSource {
@@ -45,7 +42,8 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
         self.setupNavigation()
         self.setupTableView()
         self.bind()
-        self.listener?.action.onNext(.load)
+
+        self.listener?.loadUserInfo()
     }
     
     // MARK: - SecondTabPresentable
@@ -54,6 +52,7 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
             // hasAuth가 false -> true로.
             
             print(self.currentState.hasAuth)
+            self.title = self.currentState.hasAuth == true ? "내 블로그" : "다른 사람 블로그"
             self.tableView.reloadData()
         }).disposed(by: self.disposeBag)
     }
@@ -67,7 +66,6 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
             self.listener?.showSearch()
         }), menu: nil)
         self.navigationItem.rightBarButtonItem = item
-        self.title = self.currentState.hasAuth == true ? "내 블로그" : "다른 사람 블로그"
     }
     
     func setupTableView() {

@@ -31,7 +31,7 @@ protocol SecondTabListener: class {
 }
 
 final class SecondTabInteractor: PresentableInteractor<SecondTabPresentable>, SecondTabInteractable, SecondTabPresentableListener, Reactor {
- 
+
     enum Action {
         case load
     }
@@ -78,6 +78,10 @@ final class SecondTabInteractor: PresentableInteractor<SecondTabPresentable>, Se
     
     func deactivatePost() {
         self.router?.deactivatePost()
+    }
+    
+    func loadUserInfo() {
+        self.action.onNext(.load)
     }
     
     func activateBlog() {
