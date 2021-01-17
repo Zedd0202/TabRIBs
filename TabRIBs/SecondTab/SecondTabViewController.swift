@@ -11,7 +11,6 @@ import UIKit
 import ReactorKit
 
 protocol SecondTabPresentableListener: class {
-    //var action: ActionSubject<SecondTabInteractor.Action> { get }
     
     func showPost()
     func showSearch()
@@ -50,7 +49,6 @@ final class SecondTabViewController: UIViewController, SecondTabPresentable, Sec
     func bind() {
         self.observableState.subscribe(onNext: { (state) in
             // hasAuth가 false -> true로.
-            
             print(self.currentState.hasAuth)
             self.title = self.currentState.hasAuth == true ? "내 블로그" : "다른 사람 블로그"
             self.tableView.reloadData()
